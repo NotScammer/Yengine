@@ -1,0 +1,1 @@
+cmake -S . -B build -G "CodeBlocks - MinGW Makefiles"
