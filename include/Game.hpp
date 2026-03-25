@@ -22,6 +22,8 @@ private:
     bool m_isRunning;
     float m_speed;
     
+    std::vector<PhysicalObject> objectsOtherThanThePlayer;
+    
     // Time tracking
     std::chrono::time_point<std::chrono::high_resolution_clock> m_lastFrameTime;
 

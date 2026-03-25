@@ -17,7 +17,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(SDL3)
 
-add_executable(Yengine src/main.cpp src/PhysicalObject.cpp src/Game.cpp src/Renderer.cpp)
+add_executable(Yengine src/main.cpp src/PhysicalObject.cpp src/Game.cpp src/Renderer.cpp src/MovingObject.cpp)
 
 # Link SDL3 to your game engine
 target_link_libraries(Yengine PRIVATE SDL3::SDL3)

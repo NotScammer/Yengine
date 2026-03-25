@@ -13,6 +13,8 @@ Game::~Game() {
 }
 
 bool Game::Initialize() {
+    objectsOtherThanThePlayer.push_back(PhysicalObject(WINDOW_W / 2 + 5, WINDOW_H /2 + 5, 150, 225, Color::WHITE));
+
     // Initialize rendering system
     if (!m_renderer.Initialize(WINDOW_W, WINDOW_H, "A Yengine Game")) {
         std::cerr << "Failed to initialize engine components!\n";
@@ -37,6 +39,7 @@ void Game::Run() {
         ProcessInput(dt);
         Update(dt);
         Render();
+        //std::cout << "Render time : " << dt << "ms\n";
     }
 }
 
@@ -73,7 +76,13 @@ void Game::Update(float dt) {
 
 void Game::Render() {
     m_renderer.Clear();
-    m_renderer.DrawObject(m_player); //Should iterate each object that is close to the screen center later
+
+    for(PhysicalObject obj : objectsOtherThanThePlayer){
+        m_renderer.DrawObject(obj);
+    }
+
+    m_renderer.DrawObject(m_player); //So that the play will be on foreground
+
     m_renderer.Present(); //Push buffer
 }
 
