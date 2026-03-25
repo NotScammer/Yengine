@@ -1,5 +1,6 @@
 #include "../include/Renderer.hpp"
 #include <iostream>
+#include <stdlib.h>
 
 Renderer::Renderer()
     : m_window(nullptr), m_renderer(nullptr), m_texture(nullptr), m_width(0), m_height(0) {}
@@ -26,12 +27,12 @@ bool Renderer::Initialize(int width, int height, const char* title) {
     m_texture = SDL_CreateTexture(m_renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, width, height);
     if (!m_texture) return false;
 
-    m_frameBuffer.resize(width * height, 0xFF000000); //Black
+    m_frameBuffer.resize(width * height, static_cast<uint32_t>(Color::BLACK));
     return true;
 }
 
 void Renderer::Clear() {
-    std::fill(m_frameBuffer.begin(), m_frameBuffer.end(), 0xFF000000); //Black
+    std::fill(m_frameBuffer.begin(), m_frameBuffer.end(), static_cast<uint32_t>(Color::BLACK));
 }
 
 void Renderer::DrawObject(const PhysicalObject& obj) {
@@ -44,7 +45,7 @@ void Renderer::DrawObject(const PhysicalObject& obj) {
             int drawY = startY + y;
 
             if (drawX >= 0 && drawX < m_width && drawY >= 0 && drawY < m_height) { //Window bounds
-                m_frameBuffer[drawY * m_width + drawX] = obj.getColor();
+                m_frameBuffer[drawY * m_width + drawX] = static_cast<uint32_t>(obj.getColor());
             }
         }
     }

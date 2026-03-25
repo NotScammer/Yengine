@@ -2,9 +2,10 @@
 #include <iostream>
 
 Game::Game()
-    : m_player(WINDOW_W / 2, WINDOW_H / 2, 50, 50, 0xFFFF0000),
+    : m_player(WINDOW_W / 2, WINDOW_H / 2, 50, 50, Color::RED),
       m_isRunning(false),
       m_speed(450.) // Speed is now 300 pixels per second
+      //Should probably add the objects<PhysicalObject> Vector containing the objects on the scene (will add unity-like scene system later)
 {}
 
 Game::~Game() {
@@ -33,7 +34,6 @@ void Game::Run() {
         float dt = elapsed.count(); // Time passed in seconds
         m_lastFrameTime = currentFrameTime;
 
-        // 2. Process engine logic
         ProcessInput(dt);
         Update(dt);
         Render();
@@ -68,7 +68,7 @@ void Game::ProcessInput(float dt) {
 }
 
 void Game::Update(float dt) {
-    // Physics, collision detection, and animations will go here
+    //Update loop (collision stuff)
 }
 
 void Game::Render() {

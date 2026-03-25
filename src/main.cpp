@@ -7,5 +7,7 @@ int main() {
         game.Run();
     }
 
+    //Any type of multiplayer (tcp-udp-websockets) communication should be on the main.cpp
+
     return 0;
 }

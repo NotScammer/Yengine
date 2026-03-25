@@ -1,6 +1,6 @@
 #include "PhysicalObject.hpp"
 
-PhysicalObject::PhysicalObject(int startX, int startY, int sizeX, int sizeY, uint32_t startColor)
+PhysicalObject::PhysicalObject(int startX, int startY, int sizeX, int sizeY, Color startColor)
     : x(startX), y(startY), sizeX(sizeX), sizeY(sizeY), color(startColor) {}
 
 float PhysicalObject::getX() const {
@@ -19,7 +19,7 @@ int PhysicalObject::getSizeY() const {
     return sizeY;
 }
 
-uint32_t PhysicalObject::getColor() const {
+Color PhysicalObject::getColor() const {
     return color;
 }
 
