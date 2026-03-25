@@ -3,11 +3,11 @@
 PhysicalObject::PhysicalObject(int startX, int startY, int sizeX, int sizeY, uint32_t startColor)
     : x(startX), y(startY), sizeX(sizeX), sizeY(sizeY), color(startColor) {}
 
-int PhysicalObject::getX() const {
+float PhysicalObject::getX() const {
     return x;
 }
 
-int PhysicalObject::getY() const {
+float PhysicalObject::getY() const {
     return y;
 }
 
@@ -23,10 +23,10 @@ uint32_t PhysicalObject::getColor() const {
     return color;
 }
 
-void PhysicalObject::setX(int newX) {
+void PhysicalObject::setX(float newX) {
     x = newX;
 }
 
-void PhysicalObject::setY(int newY) {
+void PhysicalObject::setY(float newY) {
     y = newY;
 }
